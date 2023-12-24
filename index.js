@@ -20,38 +20,48 @@ class Weather {
         const weatherDiv = document.createElement('div');
         weatherDiv.classList.add('weather-item');
         weatherDiv.innerHTML = weatherDetails;
-        //document.getElementById('weather_app').appendChild(weatherDiv);
+        // document.getElementById('weather_app').appendChild(weatherDiv);
     }
 }
 
 const box = document.getElementById('box');
 box.style.display = 'none';
 
+function getWeatherData(city) {
+    const apiKey = '725ce78d018f542d22bc4601873b8bc5';
+    const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${apiKey}`;
+    // const apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${cityInput}&lon={lon}&appid=${apikey}`;
+    return new Promise((resolve, reject) => {
+        fetch(apiUrl)
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok.');
+                }
+                return response.json();
+            })
+            .then(data => {
+                const { name, main, wind } = data;
+                const weatherInstance = new Weather(name, main.temp, main.feels_like, main.humidity, wind.speed);
+                resolve(weatherInstance);
+            })
+            .catch(error => {
+                reject(error);
+            });
+    });
+}
+
 const searchBtn = document.getElementById('searchBtn');
 searchBtn.addEventListener('click', async function () {
     const cityInput = document.getElementById('cityInput').value;
-    if (cityInput.trim() !== '') {
-        const apiKey = '725ce78d018f542d22bc4601873b8bc5';
-        const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${cityInput}&units=metric&appid=${apiKey}`;
-        // const apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${cityInput}&lon={lon}&appid=${apikey}`;
+    if(cityInput.trim() !== ''){
         try {
-            const response = await fetch(apiUrl);
-
-            if (!response.ok) {
-                throw new Error('Network response was not ok.');
-            }
-
-            const data = await response.json();
-            const { name, main, wind } = data;
-            const weatherInstance = new Weather(name, main.temp, main.feels_like, main.humidity, wind.speed);
-            weatherInstance.displayDetails();
+            const weatherData = await getWeatherData(cityInput);
+            weatherData.displayDetails();
             box.style.display = 'block';
+        } catch (error) {
+            alert('Error: Enter a city name not valid' + error);
         }
-        catch (error) {
-            alert('Error: Enter name is not city name!', error);
-        }
-    }
-    else {
-        alert("Please enter a city name.");
+    } else {
+        alert('Please enter a city name.');
     }
 });
