@@ -9,7 +9,7 @@ class Weather {
 
     displayDetails() {
         const weatherDetails = `
-        <p>name: ${this.city}</p>
+        <p>Name: ${this.city}</p>
         <p>Temperature: ${this.temp}°C</p>
         <p>Feels Like: ${this.feels_like}°C</p>
         <p>Humidity: ${this.humidity}%</p>
@@ -32,8 +32,8 @@ searchBtn.addEventListener('click', async function () {
     const cityInput = document.getElementById('cityInput').value;
     if (cityInput.trim() !== '') {
         const apiKey = '725ce78d018f542d22bc4601873b8bc5';
-         const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${cityInput}&units=metric&appid=${apiKey}`;
-       // const apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${cityInput}&lon={lon}&appid=${apikey}`;
+        const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${cityInput}&units=metric&appid=${apiKey}`;
+        // const apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${cityInput}&lon={lon}&appid=${apikey}`;
         try {
             const response = await fetch(apiUrl);
 
@@ -46,10 +46,12 @@ searchBtn.addEventListener('click', async function () {
             const weatherInstance = new Weather(name, main.temp, main.feels_like, main.humidity, wind.speed);
             weatherInstance.displayDetails();
             box.style.display = 'block';
-        } catch (error) {
-            alert('There was a problem fetching the weather data:', error);
         }
-    } else {
-        alert('Please enter a city name.');
+        catch (error) {
+            alert('Error: Enter name is not city name!', error);
+        }
+    }
+    else {
+        alert("Please enter a city name.");
     }
 });
