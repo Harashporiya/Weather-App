@@ -1,9 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Fredoka&display=swap');
 
 * {
-  font-family: 'Josefin Sans', sans-serif;
-  font-family: 'Kanit', sans-serif;
-  font-family: AEmb, Helvetica, Arial, sans-serif;
   font-family: 'fredoka';
 
 }
@@ -27,7 +24,6 @@ body {
   color: rgb(0, 0, 0);
   background-color: rgb(151, 151, 151);
   height: 100px;
-
   text-align: center;
 }
 

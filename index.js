@@ -32,8 +32,8 @@ searchBtn.addEventListener('click', async function () {
     const cityInput = document.getElementById('cityInput').value;
     if (cityInput.trim() !== '') {
         const apiKey = '725ce78d018f542d22bc4601873b8bc5';
-        const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${cityInput}&units=metric&appid=${apiKey}`;
-
+         const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${cityInput}&units=metric&appid=${apiKey}`;
+       // const apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${cityInput}&lon={lon}&appid=${apikey}`;
         try {
             const response = await fetch(apiUrl);
 
