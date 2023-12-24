@@ -113,20 +113,20 @@ input::placeholder {
   }
 
   #container {
-    height: 900px;
+    height: 1200px;
     width: 500px;
   }
 
   #cityInput {
     position: absolute;
-    left: 60px;
+    left: 90px;
     top: 110px;
     width: 180px;
   }
 
   #searchBtn {
     position: relative;
-    left: 60px;
+    left: 90px;
     font-size: 20px;
   }
 }

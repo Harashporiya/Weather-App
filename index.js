@@ -9,7 +9,7 @@ class Weather {
 
     displayDetails() {
         const weatherDetails = `
-        <p>City name: ${this.city}</p>
+        <p>Name: ${this.city}</p>
         <p>Temperature: ${this.temp}°C</p>
         <p>Feels Like: ${this.feels_like}°C</p>
         <p>Humidity: ${this.humidity}%</p>
