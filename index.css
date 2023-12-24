@@ -1,0 +1,132 @@
+@import url('https://fonts.googleapis.com/css2?family=Fredoka&display=swap');
+
+* {
+  font-family: 'Josefin Sans', sans-serif;
+  font-family: 'Kanit', sans-serif;
+  font-family: AEmb, Helvetica, Arial, sans-serif;
+  font-family: 'fredoka';
+
+}
+
+body {
+
+  margin: 0;
+  padding: 0;
+}
+
+#container {
+  background-image: url(pexels-pixabay-209831.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 729px;
+
+}
+
+#nav {
+  font-size: 80px;
+  color: rgb(0, 0, 0);
+  background-color: rgb(151, 151, 151);
+  height: 100px;
+
+  text-align: center;
+}
+
+#cityInput {
+  position: relative;
+  left: 0px;
+  top: 10px;
+  height: 30px;
+  width: 200px;
+  background-color: black;
+  border: none;
+  border-radius: 10px;
+}
+
+input[type="text"] {
+  color: white;
+  font-size: 25px;
+
+}
+
+#searchBtn {
+  position: relative;
+  top: 10px;
+
+}
+
+#searchBtn {
+  background-color: black;
+  color: white;
+  border: none;
+  height: 35px;
+  font-size: 25px;
+  border-radius: 10px;
+}
+
+#searchBtn:hover {
+  background-color: brown;
+
+}
+
+#box {
+  width: 300px;
+  height: 350px;
+  background-color: rgb(0, 0, 0);
+  font-size: 30px;
+  margin-left: 150px;
+  margin-top: 100px;
+  border-radius: 20px;
+  color: white;
+  border: none;
+}
+
+input::placeholder {
+  font-size: 20px;
+  color: rgba(144, 144, 144, 0.534);
+}
+
+.weather-item {
+  border: 1px solid #eee;
+  padding: 10px;
+  margin-top: 10px;
+  text-align: left;
+}
+
+#text {
+  max-width: 600px;
+  margin: 50px auto;
+  text-align: center;
+}
+
+@media only screen and (max-width: 500px) and (min-width:100px) {
+  #box {
+    position: relative;
+    right: 80px;
+  }
+
+  #nav {
+    font-size: 30px;
+    height: 50px;
+    width: 500px;
+    text-align: center;
+    margin-right: 30px;
+  }
+
+  #container {
+    height: 900px;
+    width: 500px;
+  }
+
+  #cityInput {
+    position: absolute;
+    left: 60px;
+    top: 110px;
+    width: 180px;
+  }
+
+  #searchBtn {
+    position: relative;
+    left: 60px;
+    font-size: 20px;
+  }
+}
